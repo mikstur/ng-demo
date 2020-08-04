@@ -1,1 +1,33 @@
-<p>task-list works!</p>
+<div id="taskListPage" class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5>Task List - {{ title }}</h5>
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <input
+            id="task"
+            [(ngModel)]="task.title"
+            class="form-control"
+            type="text"
+            placeholder="the task..."
+          />
+          <div class="input-group-append">
+            <button
+              (click)="submitTask()"
+              id="addBtn"
+              type="button"
+              class="btn btn-outline-secondary"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-task-table
+      [tasks]="tasks"
+      (onEdit)="editTask($event)"
+      (onDelete)="deleteTask($event)"
+    ></app-task-table>
+  </div>
+</div>

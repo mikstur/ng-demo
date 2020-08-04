@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -12,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { environment } from 'src/environments/environment';
+import { TaskTableComponent } from './task-table/task-table.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +21,18 @@ import { environment } from 'src/environments/environment';
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    TaskListComponent
+    TaskListComponent,
+    TaskTableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
